@@ -1,0 +1,50 @@
+.header {
+    position: relative;
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-skate-dark, 0.6), 
+        rgba($color-black, 0.6)), 
+        url('../img/skate/BONELESS6.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100% );
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100% );
+
+    // @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) { // komma here is an "or" condition
+    //     background-image: linear-gradient(
+    //     to right bottom, 
+    //     rgba($color-secondary-light, 0.8), 
+    //     rgba($color-secondary-dark, 0.8)), 
+    //     url('../img/hero.jpg');
+    // }
+    
+    @include respond(tab-port) {
+        background-position: 80% 90%;
+    }
+
+    @include respond(phone) {
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100% );
+        background-position: 75% 90%;
+    }
+
+    &__logo-box {  /* the & just copies '.header' here */
+        position: absolute;
+        left: 4rem;
+        top: 4rem;
+    }
+
+    &__logo {
+        height: 10rem;
+        /* width is automatically scaled by the browser */
+    }
+    
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}
